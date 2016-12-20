@@ -2,15 +2,16 @@ var http = require('http');
 var express = require('express');
 var app = express();
 
-app.get("/", function(req, res){
-    res.send("<html><body><h1>Express</h1></body></html>");
-});
+//Establish View engine. Vash was deployed with NPM
+app.set("view engine", "vash");
 
-app.get("/api/users", function(req,res){
-    res.set("Content-Type", "application/json");
-    res.send({name: "Schmidt", isValid: true, group: "Admin"})
-});
+//__dirname is a global variable that specifies the route of the app
+app.use(express.static(__dirname + "/public"));
 
+//Map the controllers folders. Any controller in this folder will be attached to the app
+var controllers = require("./Controllers");
+controllers.init(app);
+
+//Create the http server
 var server = http.createServer(app);
-
 server.listen(3000);
