@@ -5,6 +5,9 @@ var app = express();
 //Establish View engine. Vash was deployed with NPM
 app.set("view engine", "vash");
 
+//Opt into Services
+app.use(express.urlencoded());
+
 //__dirname is a global variable that specifies the route of the app
 app.use(express.static(__dirname + "/public"));
 
@@ -14,4 +17,4 @@ controllers.init(app);
 
 //Create the http server
 var server = http.createServer(app);
-server.listen(3000);
+server.listen(8080);
