@@ -1,3 +1,9 @@
+# VSCode helpers
+.vscode
+
+# Yarn
+yarn.lock
+
 # Logs
 logs
 *.log

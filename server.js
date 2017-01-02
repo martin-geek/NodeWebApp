@@ -1,14 +1,21 @@
 var http = require('http');
 var express = require('express');
 var app = express();
-// var urlEnconde = require('urlencode');
+//var urlEnconde = require('urlencode');
 
 //Establish View engine. Vash was deployed with NPM
 app.set("view engine", "vash");
 
+var bodyParser = require('body-parser')
+
+var app = express()
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
 //Opt into Services
-// app.use(express.);
-// app.use(urlEnconde);
+//app.use(express.urlencoded());
+//app.use(urlEnconde);
 
 //__dirname is a global variable that specifies the route of the app
 app.use(express.static(__dirname + "/public"));
