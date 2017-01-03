@@ -1,21 +1,21 @@
 var http = require('http');
 var express = require('express');
+var bodyParser = require('body-parser');
+var flash = require('connect-flash');
+var session = require('express-session');
+
 var app = express();
-//var urlEnconde = require('urlencode');
 
 //Establish View engine. Vash was deployed with NPM
 app.set("view engine", "vash");
 
-var bodyParser = require('body-parser')
-
-var app = express()
-
+//Opt into Services
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+// manage sessions
+app.use(session({ secret: "PluralsightTheBoard"}));
+app.use(flash());
 
-//Opt into Services
-//app.use(express.urlencoded());
-//app.use(urlEnconde);
 
 //__dirname is a global variable that specifies the route of the app
 app.use(express.static(__dirname + "/public"));
@@ -25,7 +25,4 @@ var controllers = require("./Controllers");
 controllers.init(app);
 
 //Create the http server
-// var server = http.createServer(app);
-// server.listen(3000);
-
 http.createServer(app).listen(process.env.PORT || 8080);
