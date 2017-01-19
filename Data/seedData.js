@@ -5,15 +5,15 @@
     notes : [{
       note: "Testing history",
       author: "Some Body",
-      color: "Yellow"
+      color: "green"
       }, {
       note: "Testing history",
-      author: "Some Body",
-      color: "Yellow"
+      author: "Some Body2",
+      color: "yellow"
       }, {
       note: "Testing history",
-      author: "Some Body",
-      color: "Yellow"
+      author: "Some Body3",
+      color: "blue"
     }]
     }, {
     name : "ligula",

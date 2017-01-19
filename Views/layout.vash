@@ -1,64 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>@model.title</title>
-    <link rel="stylesheet" href="/css/site.css">
-    <script type="text/javascript" src="/js/vendors.min.js"></script>
-  </head>
-  <body>
-    <div class="">
-      @html.block("body")
-    </div>
-  </body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>@model.title</title>
-
-    <!-- Bootstrap -->
-    <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/vendors/jquery/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/vendors/bootstrap/js/bootstrap.min.js"></script>
-
+<head>
+  <title>@model.title</title>
+  <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  @html.block("head")
+  <link href="/css/site.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">@model.title</h3>
+      <div class="navbar-header">
+        <button class="btn btn-success navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="glyphicon glyphicon-chevron-down"></span>
+        </button>
+        <div id="logo">
+          <a href='/'>
+            <h4>The Board</h4>
+          </a>
+        </div>
       </div>
-
-      <div class="starter-template">
-        @html.block("body")
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav">
+            <a href="/">Home</a>
+          </li>
+          <li class="nav">
+            <a href="/register">Register</a>
+          </li>
+          <li class="nav">
+            <a href="/login">Login</a>
+          </li>
+        </ul>
       </div>
-
-      <br>
-      <footer class="footer">
-        <p>&copy; 2016 @model.title</p>
-      </footer>
     </div>
+  </div>
 
-  </body>
+  <section id="body" class="container">
+    <div class="page-header">
+      <h1>@model.title</h1>
+    </div>
+    @html.block("body")
+  </section>
+  <hr />
+  <footer class="container">
+    <p>The Board</p>
+  </footer>
+  <script src="/vendors/jquery/jquery.min.js"></script>
+  <script src="/vendors/angular/angular.min.js"></script>
+  <script src="/vendors/bootstrap/bootstrap.min.js"></script>
+  <script src="/vendors/underscore/underscore.min.js"></script>
+  <script src="/vendors/angular-ui-bootstrap/ui-bootstrap.js"></script>
+
+  @html.block("scripts")
+</body>
 </html>

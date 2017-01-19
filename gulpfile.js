@@ -17,4 +17,12 @@ gulp.task('default', [], function () {
       base: './node_modules/underscore/'
   }).pipe(gulp.dest('./public/vendors/underscore/'));
 
+  gulp.src('./node_modules/angular/*.min.js', {
+      base: './node_modules/angular'
+  }).pipe(gulp.dest('./public/vendors/angular/'));
+
+  gulp.src('./node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js', {
+      base: './node_modules/angular-ui-bootstrap/dist/'
+  }).pipe(gulp.dest('./public/vendors/angular-ui-bootstrap/'));
+
 });
